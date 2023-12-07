@@ -1,4 +1,4 @@
-package com.garage.conexion;
+package com.garage.Connection;
 
 import java.io.*;
 import java.sql.Connection;
