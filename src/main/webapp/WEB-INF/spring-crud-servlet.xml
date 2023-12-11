@@ -64,9 +64,10 @@
     </bean>
 
     <!-- Habilitar configuración de transacciones basadas en anotaciones -->
-
-
 	<tx:annotation-driven transaction-manager="miTransactionManager" />
+
+	<!-- Estilos CSS-->
+	<mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
 
 </beans>
 

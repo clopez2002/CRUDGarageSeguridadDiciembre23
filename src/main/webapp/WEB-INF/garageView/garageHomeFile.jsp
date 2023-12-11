@@ -11,12 +11,16 @@
 <html>
 <head>
     <title>Garage Home URL</title>
+
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilos.css"/>
+
+
 </head>
 <body>
 
         <h1>Garage Home Page</h1>
 
-        <table>
+        <table border="1">
 
             <tr>
                 <th>Nombre</th>
@@ -54,9 +58,14 @@
 
             </c:forEach>
 
-
-
         </table>
+
+        <br>
+
+        <div style="text-align: center">
+                <input type="button" value="Add Client" onclick="window.location.href='addClientURL'; return false;"/>
+        </div>
+
 
 </body>
 </html>
