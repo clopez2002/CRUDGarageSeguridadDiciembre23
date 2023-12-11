@@ -5,6 +5,8 @@ import com.garage.Repository.DAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -39,12 +41,28 @@ public class Controller {
 /***************************************************************************************/
 
     @RequestMapping("/addClientURL")
-    public String addClientMethod (){
+    public String addClientMethod (Model theModel){
+
+        // bind de datos de clientes
+
+        Client oneClient = new Client();
+
+        theModel.addAttribute("oneClientAttribute", oneClient);
 
         return "addClientFile";
     }
 
 /***************************************************************************************/
+
+    @PostMapping("saveclientOnDDBBURL")
+    public String saveClientOnDDBBMethod (@ModelAttribute("oneClientAttribute") Client newClient){
+
+        // insertamos el cliente en la BBDD
+
+        dao.saveNewClientToDDBB(newClient);
+
+        return "redirect:/garageHomeURL/home";
+    }
 
 /***************************************************************************************/
 

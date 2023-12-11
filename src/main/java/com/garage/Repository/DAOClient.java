@@ -39,9 +39,24 @@ public class DAOClient implements DAO{
         return clientList;
     }
 
-
-
 /***************************************************************************************/
+
+    @Override
+    @Transactional
+    public void saveNewClientToDDBB(Client newClient) {
+
+        // obtener session
+
+        Session mySession = sessionFactory.getCurrentSession();
+
+        // guardar cliente
+
+        mySession.save(newClient);
+
+    }
+
+
+
 
 /***************************************************************************************/
 
