@@ -51,14 +51,27 @@ public class DAOClient implements DAO{
 
         // guardar cliente
 
-        mySession.save(newClient);
+        // mySession.save(newClient);
+
+        mySession.saveOrUpdate(newClient);
 
     }
 
-
-
-
 /***************************************************************************************/
+
+    @Override
+    @Transactional
+    public Client getoneClientById(int id) {
+
+        // obtener session
+
+        Session mySession = sessionFactory.getCurrentSession();
+
+        Client client = mySession.get(Client.class, id);
+
+        return client;
+    }
+
 
 /***************************************************************************************/
 

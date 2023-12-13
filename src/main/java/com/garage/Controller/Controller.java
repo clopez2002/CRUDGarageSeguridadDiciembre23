@@ -5,9 +5,7 @@ import com.garage.Repository.DAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -66,7 +64,31 @@ public class Controller {
 
 /***************************************************************************************/
 
+    @RequestMapping("/updateClientURL")
+    public String updateClientMethod (@RequestParam("clienId") int Id, Model theModel){
+
+        // Obtener el cliete
+
+        Client client = dao.getoneClientById(Id);
+
+        // Establecer el cliente como atributo del modelo
+
+        theModel.addAttribute("runnerAttributeToUpdate", client);
+
+        // Enviar el formualio
+
+        return "updateClientFile";
+    }
+
 /***************************************************************************************/
+
+    @PostMapping("/saveClientUpdatedURL")
+    public String saveClientUpdateMethod (@ModelAttribute("runnerAttributeToUpdate") Client newClient){
+
+        dao.saveNewClientToDDBB(newClient);
+
+        return "redirect:/garageHomeURL/home";
+    }
 
 /***************************************************************************************/
 

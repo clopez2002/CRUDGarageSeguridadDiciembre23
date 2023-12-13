@@ -1,4 +1,5 @@
 <%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: ClaudioCristianLopez
@@ -35,10 +36,19 @@
                 <th>Anio</th>
                 <th>Patente</th>
 
+                <!-- Columna de UPDATE-->
+                <th>Update</th>
+
 
             </tr>
 
             <c:forEach var="clientsTMP" items="${clientsAttributes}">
+
+
+                <!-- Con esto obtenemos el ID del cliente que vamos a modificar -->
+                <c:url var="updateLink" value="/garageHomeURL/updateClientURL">
+                    <c:param name="clienId" value="${clientsTMP.id}"/>
+                </c:url>
 
                 <tr>
                     <td>${clientsTMP.nombre}</td>
@@ -53,6 +63,9 @@
                     <td>${clientsTMP.anio}</td>
                     <td>${clientsTMP.patente}</td>
 
+                    <!-- Link para update de cliente -->
+                    <td><a href="${updateLink}"><input type="button" value="Update"></a> </td> <!-- -->
+
                 </tr>
 
 
@@ -63,7 +76,8 @@
         <br>
 
         <div style="text-align: center">
-                <input type="button" value="Add Client" onclick="window.location.href='addClientURL'; return false;"/>
+                <input type="button" value="Create Client" onclick="window.location.href='addClientURL'; return false;"/>
+
         </div>
 
 
