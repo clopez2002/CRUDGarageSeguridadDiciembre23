@@ -77,7 +77,8 @@
                     <td><a href="${updateLink}"><input type="button" value="Update"></a> </td> <!-- -->
 
                     <!-- Boton para borrar cliente -->
-                    <td><a href="${deleteLink}"><input type="button" value="Delete"></a> </td> <!-- -->
+                    <td><a href="${deleteLink}"><input type="button" value="Delete"
+                                 onclick="if (!(confirm('Esta seguro de eliminar el usuario?'))) return false"/></a> </td><!-- -->
 
                 </tr>
 
