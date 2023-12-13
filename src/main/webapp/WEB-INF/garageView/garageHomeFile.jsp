@@ -40,6 +40,10 @@
                 <th>Update</th>
 
 
+                <!-- Columna para Delete -->
+                <th>Delete</th>
+
+
             </tr>
 
             <c:forEach var="clientsTMP" items="${clientsAttributes}">
@@ -48,6 +52,12 @@
                 <!-- Con esto obtenemos el ID del cliente que vamos a modificar -->
                 <c:url var="updateLink" value="/garageHomeURL/updateClientURL">
                     <c:param name="clienId" value="${clientsTMP.id}"/>
+                </c:url>
+
+
+                <!-- Para borrar un clinete -->
+                <c:url var="deleteLink" value="/garageHomeURL/deleteClientURL">
+                    <c:param name="clientId" value="${clientsTMP.id}"/>
                 </c:url>
 
                 <tr>
@@ -66,6 +76,9 @@
                     <!-- Link para update de cliente -->
                     <td><a href="${updateLink}"><input type="button" value="Update"></a> </td> <!-- -->
 
+                    <!-- Boton para borrar cliente -->
+                    <td><a href="${deleteLink}"><input type="button" value="Delete"></a> </td> <!-- -->
+
                 </tr>
 
 
@@ -77,6 +90,7 @@
 
         <div style="text-align: center">
                 <input type="button" value="Create Client" onclick="window.location.href='addClientURL'; return false;"/>
+
 
         </div>
 

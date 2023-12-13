@@ -92,6 +92,17 @@ public class Controller {
 
 /***************************************************************************************/
 
+    @RequestMapping("/deleteClientURL")
+    public String deleteClientMethofd (@RequestParam("clientId") int Id){
+
+        // eliminamos el cliente
+        dao.deleteClientById (Id);
+
+        return "redirect:/garageHomeURL/home";
+    }
+
+
+
 /***************************************************************************************/
 
 /***************************************************************************************/
